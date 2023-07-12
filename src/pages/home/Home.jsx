@@ -1,6 +1,6 @@
 import React from "react";
 
-import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar";
 import Works from "./Works";
 import Hero from "./Hero";
 import About from "./About";
@@ -12,7 +12,6 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PropTypes from "prop-types";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Fade from "@mui/material/Fade";
-import Sidebar from "./Sidebar";
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -58,30 +57,13 @@ ScrollTop.propTypes = {
 
 const Home = (props) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-        scrollBehavior: "smooth",
-      }}
-    >
+    <>
       <Navbar />
-
-      <Box container component="main" sx={{ minHeight: "100vh" }}>
-        <Sidebar position="left" />
-        <Sidebar position="right" />
-        <Box>
-          <Hero />
-          <About />
-          <Works />
-          <Contact />
-        </Box>
-      </Box>
-
-      {/* <Footer /> */}
-
-      <ScrollTop {...props} >
+      <Hero />
+      <About />
+      <Works />
+      <Contact />
+      <ScrollTop {...props}>
         <Fab
           size="small"
           aria-label="scroll back to top"
@@ -90,7 +72,7 @@ const Home = (props) => {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
-    </Box>
+    </>
   );
 };
 

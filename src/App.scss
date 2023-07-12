@@ -1,0 +1,22 @@
+$primary: #19376d;
+$primaryDark: #0b2447;
+$primaryLight: #576cbc;
+$secondary: #a5d7e8;
+
+@mixin circle($size) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    min-width: 768px;
+    position: relative;
+}
