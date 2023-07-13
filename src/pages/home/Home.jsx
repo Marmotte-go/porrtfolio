@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.scss";
 
 import Navbar from "../../components/Navbar";
 import Works from "./Works";
@@ -57,12 +58,14 @@ ScrollTop.propTypes = {
 
 const Home = (props) => {
   return (
-    <>
+    <div className="home">
       <Navbar />
-      <Hero />
-      <About />
-      <Works />
-      <Contact />
+      <div className="sections">
+        <Hero />
+        <About />
+        <Works />
+        <Contact />
+      </div>
       <ScrollTop {...props}>
         <Fab
           size="small"
@@ -72,7 +75,7 @@ const Home = (props) => {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
-    </>
+    </div>
   );
 };
 

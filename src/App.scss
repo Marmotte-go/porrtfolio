@@ -15,8 +15,53 @@ $secondary: #a5d7e8;
     box-sizing: border-box;
 }
 
+html {
+    min-width: 800px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    scroll-behavior: smooth;
+    // this scroll setting will make the page always shows a whole section, stops at the start of a section
+    // attention: this setting has two parts, one is in the parent element, another in the children elements
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none; // only for firefox
+
+    &::-webkit-scrollbar {
+        width: 20px;
+    }
+
+    // for other browsers
+
+    &::-webkit-scrollbar-track {
+        background: linear-gradient($primaryDark, black)
+    }
+
+
+    &::-webkit-scrollbar-thumb {
+        background-image: url("./img/marmot-1.png");
+        background-position:center center;
+        background-repeat: no-repeat;
+        background-size: 35px;
+    }
+
+}
+
 body {
     color: white;
     min-width: 768px;
     position: relative;
+
+    .app {
+        .home {
+            .sections {
+                height: 100vh;
+                position: relative;
+
+                >* {
+                    height: 100vh;
+                    scroll-snap-align: start;
+                    position: relative;
+                }
+            }
+        }
+    }
 }

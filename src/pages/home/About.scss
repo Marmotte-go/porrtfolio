@@ -1,0 +1,134 @@
+@import '../../App.scss';
+
+#about {
+    background: linear-gradient(black, $primaryDark);
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        gap: 2rem;
+
+        .container-left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            flex-direction: column;
+            padding-left: 5rem;
+            @media screen and (max-width: 1024px){
+                padding-left: 0;
+            }
+
+
+            h2 {
+                font-size: 4rem;
+                padding-bottom: 2rem;
+
+                @media screen and (max-width: 1024px) {
+                    font-size: 2.5rem;
+                }
+            }
+
+            p {
+                font-size: 1rem;
+                padding-bottom: 0.7rem;
+                font-weight: 300;
+
+                span {
+                    font-weight: bold;
+                    color: $secondary;
+                }
+
+                a{
+                    color: pink;
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-size: 0.8rem;
+                    transition: all 0.2s ease-in-out;
+                    &:hover{
+                        color: lightsalmon;
+                        font-size: 0.9rem;
+                        text-decoration: underline;
+                    }
+                }
+
+                @media screen and (max-width: 1024px) {
+                    font-size: 0.8rem;
+                }
+            }
+
+        }
+
+        .container-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            z-index: 0;
+            .img-box {
+                position: relative;
+                padding: 0;
+                margin: 0;
+                width: 350px;
+                border-radius: 100px;
+                z-index: 1;
+
+                @media screen and (max-width: 1024px) {
+                    width: 300px;
+                }
+                img{
+                    width: 100%;
+                    background: linear-gradient($primaryDark, black);
+                    border-radius: 100px;
+                }
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+                    /* background: conic-gradient(red, orange, yellow, green, blue); */
+                    background-size: 400%;
+                    width: calc(100% + 4px);
+                    height: calc(100% + 2px);
+                    border-radius: 100px;
+                    animation: glowing 20s linear infinite;
+                    z-index: -1;
+                }
+
+                &::after {
+                    filter: blur(20px);
+                }
+
+                @keyframes glowing {
+                    0% {
+                        background-position: 0%
+                    }
+
+                    50% {
+                        background-position: 400%
+                    }
+
+                    100% {
+                        background-position: 0%
+                    }
+                }
+            }
+        }
+    }
+
+
+}
