@@ -25,23 +25,23 @@ html {
     scroll-snap-type: y mandatory;
     scrollbar-width: none; // only for firefox
 
-    &::-webkit-scrollbar {
-        width: 20px;
-    }
+    // &::-webkit-scrollbar {
+    //     width: 20px;
+    // }
 
-    // for other browsers
+    // // for other browsers
 
-    &::-webkit-scrollbar-track {
-        background: linear-gradient($primaryDark, black)
-    }
+    // &::-webkit-scrollbar-track {
+    //     background: linear-gradient($primaryDark, black)
+    // }
 
 
-    &::-webkit-scrollbar-thumb {
-        background-image: url("./img/marmot-1.png");
-        background-position:center center;
-        background-repeat: no-repeat;
-        background-size: 35px;
-    }
+    // &::-webkit-scrollbar-thumb {
+    //     background-image: url("./img/marmot-1.png");
+    //     background-position:center center;
+    //     background-repeat: no-repeat;
+    //     background-size: 35px;
+    // }
 
 }
 

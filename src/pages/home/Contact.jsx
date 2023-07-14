@@ -1,28 +1,63 @@
-import React from "react";
-import Container from "@mui/material/Container";
-import { Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import "./Contact.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSatelliteDish } from "@fortawesome/free-solid-svg-icons";
+import CopyButton from "../../components/CopyButton";
 
 const Contact = () => {
+  const [leftRotation, setLeftRotation] = useState(0);
+  const [rightRotation, setRightRotation] = useState(-90);
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const innerHeight = window.innerHeight;
+    const innerWidth = window.innerWidth;
+    let radLeft = Math.atan2(innerHeight - clientY, clientX);
+    let radRight = Math.atan2(innerHeight - clientY, innerWidth - clientX);
+    let leftRotation = radLeft * (180 / Math.PI) * -1 + 45;
+    let rightRotation = radRight * (180 / Math.PI) + 225;
+
+    setLeftRotation(leftRotation);
+    setRightRotation(rightRotation);
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
-    <Container
-      id="contact"
-      sx={{ backgroundColor: "secondary.dark" }}
-      maxWidth="false"
-    >
-      <Box textAlign="center" mt={12} pt={12} pb={12} color="white">
-        <Typography variant="h2" fontWeight={700} mb={4}>
-          Get in touch
-        </Typography>
-        <Typography variant="h5" gutterBottom mb={4}>
-          yuankemiao.dev@gmail.com
-        </Typography>
-        <Typography variant="body" >
+    <div className="contact" id="contact">
+      <div className="container">
+        <h1>Get in touch</h1>
+        <span>
+          <h3>yuankemiao.dev@gmail.com</h3>
+          <CopyButton email="yuankemiao.dev@gmail.com" />
+        </span>
+        <p>
+          {" "}
           I'm currently looking for a full-time job. <br />
           If you have any questions or want to work with me, <br />
           please feel free to contact me.
-        </Typography>
-      </Box>
-    </Container>
+        </p>
+      </div>
+      <div className="satelite-container">
+        <div
+          className="satelite satelite1"
+          style={{ transform: `rotate(${leftRotation}deg)` }}
+        >
+          <FontAwesomeIcon icon={faSatelliteDish} />
+        </div>
+        <div
+          className="satelite satelite2"
+          style={{ transform: `rotate(${rightRotation}deg)` }}
+        >
+          <FontAwesomeIcon icon={faSatelliteDish} />
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -5,7 +5,6 @@ const ShootingStar = () => {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    console.log(stars)
     const createStar = () => {
       const randomDelay = Math.random() * 5 + 1; // Random delay between 1 and 6 seconds
       const randomX = Math.random() * window.innerWidth; // Random X position
