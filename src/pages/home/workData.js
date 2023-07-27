@@ -3,17 +3,25 @@ export const fullstackApps = [
         title: "Blog",
         id: 1,
         description:
-            "This is a simple blog website. I made it because I love the blog era, when there is no social media, people write blogs to share their life. I want to bring it back. ",
+            "This is a simple but functional blog website. It is made with React and Firebase. Thanks Google for providing such a great backend service.",
         image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2672&q=80',
         published: "https://blog.yuankedev.fun",
     },
     {
-        title: "M.Chat",
+        title: "AI Chatbot",
         id: 2,
         description:
-            "This is a chat app I made for my Chinese friends. So they can speak freely without censorship. ",
+            "This is a openai powered chatbot. Tbh, I didn't do much, just a simple frontend and Google cloud functions. The AI is doing all the work. ",
         image: '',
-        published: false,
+        published: "https://ai.yuankedev.fun/chatbot",
+    },
+    {
+        title: "AI Language Assistant",
+        id: 3,
+        description:
+            "You input a Finnish sentence, and the AI will explain all linguistic knowledge of each word and the whole sentence. It is quite handy for Finnish learners, I use it everyday. ",
+        image: '',
+        published: "https://ai.yuankedev.fun/language-assistant",
     },
 ];
 

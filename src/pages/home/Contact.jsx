@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Contact.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSatelliteDish } from "@fortawesome/free-solid-svg-icons";
 import CopyButton from "../../components/CopyButton";
 
+import { ThemeContext } from "../../context/ThemeContext";
+
 const Contact = () => {
+  const {theme} = useContext(ThemeContext);
+  
   const [leftRotation, setLeftRotation] = useState(0);
   const [rightRotation, setRightRotation] = useState(-90);
 
@@ -29,7 +33,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="contact" id="contact">
+    <div className={`contact ${theme === 'light' ? 'light' : ''}`}id="contact">
       <div className="container">
         <h1>Get in touch</h1>
         <span>

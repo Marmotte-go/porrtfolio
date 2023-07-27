@@ -4,16 +4,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import { ThemeContext } from "../../context/ThemeContext";
 
 import ShootingStar from "../../components/ShootingStar";
-
+import RotatingSun from "../../components/RotatingSun";
 import "./Hero.scss";
 
+
 const Hero = () => {
+  const {theme} = useContext(ThemeContext);
   const [isHover, setIsHover] = useState(false);
   return (
-    <div id="hero">
+    <div id="hero" className={`hero ${theme === 'light' ? 'light' : ''}`}>
       <div className="container">
         <div
           className="left-container"
@@ -51,6 +55,7 @@ const Hero = () => {
         </div>
       </div>
       <ShootingStar />
+      <RotatingSun />
     </div>
   );
 };

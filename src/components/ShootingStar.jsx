@@ -22,12 +22,12 @@ const ShootingStar = () => {
       }, randomDelay * 1000);
     };
 
-    const intervalId = setInterval(createStar, 4000); // Create stars every 2 seconds
+    const intervalId = setInterval(createStar, 2000); // Create stars every 2 seconds
     return () => clearInterval(intervalId);
   }, [stars]);
 
   return (
-    <div className="background-container">
+    <div className="shootingStar-container">
       {stars.map((star, index) => (
         <div
           key={index}

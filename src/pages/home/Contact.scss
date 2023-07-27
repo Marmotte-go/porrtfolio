@@ -1,11 +1,17 @@
 @import '../../App.scss';
 
-#contact {
+.contact {
     background: black;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
+    margin: 0;
+
+    &.light{
+      background:linear-gradient($secondary, $primaryDark);
+    }
 
     .container {
         display: flex;

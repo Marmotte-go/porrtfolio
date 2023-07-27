@@ -1,12 +1,15 @@
 import "./About.scss";
 import Sloth from "../../img/sloth.png";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const About = () => {
+  const {theme} = useContext(ThemeContext);
+
   return (
-    <div id="about">
+    <div id="about" className={`about ${theme === 'light' ? 'light' : ''}`}>
       <div className="container">
         <div className="container-left">
-          <h2>About Me</h2>
           <p>Hi, I am Yuanke.</p>
           <p>A frontend developer in Jyväskylä, Finland.</p>
           <p>
@@ -18,7 +21,7 @@ const About = () => {
             things.
           </p>
           <p>
-            I love cute <span>Amigurumi</span> (crochet stuffed animals).
+            I love cute <span>Amigurumi</span> (crochet and knitted stuffed animals).
           </p>
           <p>
             I love Lego, I will show you my <span>Lego</span> collection if you

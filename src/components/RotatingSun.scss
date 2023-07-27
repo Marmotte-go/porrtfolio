@@ -1,0 +1,25 @@
+@import '../App.scss';
+
+.rotatingSun-container {
+  z-index: 0;
+
+  .rotatingSun {
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 2.5rem);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: 0 0 8rem yellow, 0 0 12rem yellow, 0 0 15rem gold, 0 0 20rem gold, inset 0 0 1rem yellow;
+    animation: rotatingSun 8s linear infinite;
+    transform-origin: 0 150vh;
+    @keyframes rotatingSun {
+      0% {
+        transform: rotate(-80deg);
+      }
+      100% {
+        transform: rotate(80deg);
+      }
+    }
+  }
+}

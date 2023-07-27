@@ -1,12 +1,14 @@
-import './App.scss';
-import Home from './pages/home/Home';
-
+import "./App.scss";
+import Home from "./pages/home/Home";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <div className="app">
-      <Home />
-    </div>
+    <ThemeProvider>
+      <div className="app">
+        <Home />
+      </div>
+    </ThemeProvider>
   );
 }
 

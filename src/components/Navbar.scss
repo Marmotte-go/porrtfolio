@@ -1,38 +1,60 @@
 @import '../App.scss';
 
 nav {
-    background-color: $primaryDark;
-    color: white;
-    padding: 1rem 3rem;
-    margin: 0;
+  background-color: $primaryDark;
+  color: white;
+  padding: 1rem 3rem;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
+
+  &.light {
+    background-color: $secondaryLight;
+    color: $primaryDark;
+
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 8vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    
-    .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: white;
-    }
+    justify-content: space-between;
+    gap: 2rem;
+
     .nav-links {
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-        
-        li{
-            width: 2.5rem;
-            &:hover {
-                font-weight: bold;
-                cursor: pointer;
-            }
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+
+      li {
+        width: 4rem;
+        text-align: center;
+
+        &:nth-child(2) {
+          width: 4.5rem;
         }
+
+        &:hover {
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
     }
-};
+  }
+}
+
+;

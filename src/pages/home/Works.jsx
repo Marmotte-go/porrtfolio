@@ -9,6 +9,8 @@ import {
 import placeholder from "../../img/placeholder.jpg";
 
 import "./Works.scss";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const list = [
   { name: "Fullstack Apps", id: "fullstack-apps" },
@@ -18,6 +20,7 @@ const list = [
 ];
 
 const Works = () => {
+  const {theme} = useContext(ThemeContext);
   const [selected, setSelected] = useState("fullstack-apps");
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -40,7 +43,7 @@ const Works = () => {
   }, [selected]);
 
   return (
-    <div id="works">
+    <div id="works" className={`workpage ${theme === 'light' ? 'light' : ''}`}>
       <div className="header">
         <h2>Works</h2>
         <p>

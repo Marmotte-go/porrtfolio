@@ -1,134 +1,182 @@
 @import '../../App.scss';
 // Path: src/pages/home/Works.js
 
-#works {
-    background: linear-gradient($primaryDark, black);
+.workpage {
+  background: linear-gradient($primaryDark, black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  overflow: hidden;
+  gap: 2rem;
+  margin: 0;
+
+  &.light{
+    background: linear-gradient($secondaryLight, $secondary);
+    color: $primaryDark;
+
+    .container{
+      ul{
+        li{
+          &:hover {
+            background-color: $secondary;
+          }
+  
+          &.active {
+            background-color: $secondaryDark;
+          }
+        }
+      }
+      .works{
+        .work{
+          border: 1px solid white;
+          .info{
+            h3{
+              background-color: rgba($color: $secondaryLight, $alpha: 0.7);
+            }
+            p{
+              background-color: rgba($color: $secondaryLight, $alpha: 0.7);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header {
+    flex: 1;
+    padding-left: 5rem;
+    min-width: 300px;
+
+    h2 {
+      font-size: 4rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7rem;
+    }
+  }
+
+  .container {
+    flex: 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5rem;
-    overflow: hidden;
-    gap: 2rem;
+    flex-direction: column;
 
-    .header {
-        flex: 1;
-        padding-left: 5rem;
-        min-width: 300px;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
 
-        h2 {
-            font-size: 4rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
+      li {
+        list-style: none;
+        cursor: pointer;
+        font-size: .8rem;
+        height: 30px;
+        font-weight: 600;
+        color: inherit;
+        transition: all 0.3s ease;
+        padding: 7px;
+        border-radius: 15px;
+
+        &:hover {
+          background-color: $primary;
         }
 
-        p {
-            font-size: 1rem;
-            font-weight: 300;
-            line-height: 1.7rem;
+        &.active {
+          background-color: $primaryLight;
         }
+      }
     }
 
-    .container {
-        flex: 3;
+    .works {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      min-width: 550px;
+      max-width: 550px;
+      min-height: 450px;
+      border-radius: 20px;
+      transition: all 0.7s ease-in-out;
+
+      .work {
+        width: 250px;
+        height: 200px;
+        border-radius: 20px;
+        margin: 10px 10px;
         display: flex;
-        justify-content: center;
         align-items: center;
-        flex-direction: column;
+        justify-content: center;
+        color: inherit;
+        position: relative;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        overflow: hidden;
+        border: 1px solid lightgrey;
 
-        ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
 
-            li {
-                list-style: none;
-                cursor: pointer;
-                font-size: .8rem;
-                font-weight: 600;
-                color: white;
-                transition: all 0.3s ease;
-                padding: 7px;
-                border-radius: 10px;
-
-                &:hover {
-                    background-color: $primary;
-                }
-
-                &.active {
-                    background-color: $primaryLight;
-                }
-            }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0;
         }
 
-        .works {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            min-width: 600px;
-            max-width: 600px;
-            min-height: 450px;
-            border-radius: 20px;
-            transition: all 0.7s ease-in-out;
-            
-            .work {
-                width: 250px;
-                height: 200px;
-                border-radius: 20px;
-                margin: 10px 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                position: relative;
-                transition: all 0.5s ease;
-                cursor: pointer;
-                overflow: hidden;
-                border: 1px solid white;
-                
+        .info {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 1rem;
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    z-index: 0;
-                    opacity: 0.3;
-                }
+          h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 0 1rem;
+            line-height: 3rem;
+            position: absolute;
+            height: 2.5rem;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba($color: $primaryDark, $alpha: 0.7)
+          }
 
-                .info{
-                    position: absolute;
-                    padding: 1rem;
-                    h3{
-                        font-size: 1.5rem;
-                        font-weight: 600;
-                        margin-bottom: 1rem;
-                        text-align: center;
-                    }
-
-                    p{
-                        font-size: .8rem;
-                        font-weight: 300;
-                        line-height: 1.25rem;
-                        text-align: justify;
-                    }
-                }
-
-                &:hover {
-                    transform: scale(1.1);
-                    
-                }
-
-                // &:hover {
-                //     background-color: $primary;
-
-                //     img {
-                //         opacity: 0.2;
-                //         z-index: 0;
-                //     }
-                // }
-            }
+          p {
+            font-size: .8rem;
+            font-weight: 400;
+            line-height: 1.25rem;
+            text-align: justify;
+            position: absolute;
+            padding: 1rem;
+            top: 2.5rem;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+          }
         }
+
+        &:hover {
+          transform: scale(1.1);
+
+          p{
+            background-color: rgba($color: $primaryDark, $alpha: 0.7);
+            display: block;
+          }
+
+        }
+      }
     }
+  }
 }
