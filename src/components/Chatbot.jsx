@@ -1,9 +1,9 @@
 import "./Chatbot.scss";
 import Draggable from "react-draggable";
 import { SendIcon } from "./Icons";
-import { useState, useEffect, useRef, createRef } from "react";
+import { useState, useEffect, useRef, createRef, useContext, memo } from "react";
+
 import Loading from "./Loading";
-import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 import { httpsCallable } from "firebase/functions";
@@ -33,7 +33,7 @@ const botResponse = async (message) => {
 //   });
 // };
 
-const Chatbot = () => {
+const Chatbot = memo (function Chatbot() {
   const { theme } = useContext(ThemeContext);
 
   const [activeChatbot, setActiveChatbot] = useState(false);
@@ -172,6 +172,7 @@ const Chatbot = () => {
       </div>
     </Draggable>
   );
-};
+}
+);
 
 export default Chatbot;
