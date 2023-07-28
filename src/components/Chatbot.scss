@@ -1,0 +1,292 @@
+@import "../App.scss";
+
+.chatbot {
+  position: fixed;
+  top: 30%;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 0 50% 50% 50%;
+  z-index: 99;
+  background-color: $secondary;
+  color: $primaryDark;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba($secondaryLight, 0.5);
+
+  @keyframes shake {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+
+    1% {
+      transform: translate(-5px, 0) rotate(-5deg);
+    }
+
+    2% {
+      transform: translate(5px, 0) rotate(5deg);
+    }
+
+    3% {
+      transform: translate(-5px, 0) rotate(-5deg);
+    }
+
+    4% {
+      transform: translate(5px, 0) rotate(5deg);
+    }
+
+    5% {
+      transform: translate(-5px, 0) rotate(-5deg);
+    }
+
+    6% {
+      transform: translate(5px, 0) rotate(5deg);
+    }
+
+    7% {
+      transform: translate(-5px, 0) rotate(-5deg);
+    }
+
+    8% {
+      transform: translate(5px, 0) rotate(5deg);
+    }
+
+    9% {
+      transform: translate(-5px, 0) rotate(-5deg);
+    }
+
+    10% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+
+  }
+
+  h3,
+  .chatbot-container {
+    display: none;
+  }
+
+  &.light {
+    background-color: $primaryDark;
+    color: white;
+    box-shadow: 0 0 1rem rgba($primaryDark, 0.5);
+
+    &.active {
+      .chatbot-container {
+        .chats {
+          .chat {
+            .content {
+              span {
+                color: $secondaryLight;
+              }
+
+              p {
+                background-color: $secondaryLight;
+                color: $primaryDark;
+              }
+            }
+
+            &.user {
+              .content {
+                p {
+                  background-color: $primaryLight;
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+        .tag {
+          span {
+            color: $secondaryLight;
+          }
+        }
+      }
+    }
+
+  }
+
+  &::before {
+    content: 'Hi';
+    position: absolute;
+    top: calc(50% - 0.5rem);
+    left: calc(50% - 0.5rem);
+    animation: shake 10s infinite;
+    font-size: 1rem;
+    font-weight: bold;
+    color: inherit;
+  }
+
+  &.active {
+    width: 400px;
+    height: 300px;
+    overflow: scroll;
+    cursor: default;
+    border-radius: 0 10px 10px 10px;
+    padding: 1rem;
+    animation: none;
+    cursor: grab;
+
+    &.dragging {
+      cursor: grabbing;
+    }
+
+    .chatbot-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+
+      .chats {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+
+        .chat {
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          font-size: 0.9rem;
+          margin-bottom: 1rem;
+
+          .content {
+            max-width: 80%;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+
+            span {
+              font-size: 0.8rem;
+              color: $primaryDark;
+              margin: 0;
+            }
+
+            p {
+              margin: 0;
+              background-color: white;
+              padding: 0.5rem 1rem;
+              border-radius: 0 1rem 1rem 1rem;
+              width: 100%;
+              max-width: max-content;
+            }
+          }
+
+          &.user {
+            flex-direction: row-reverse;
+
+            .content {
+              flex-direction: row-reverse;
+
+              p {
+                background-color: $primary;
+                color: white;
+                border-radius: 1rem 0 1rem 1rem;
+              }
+            }
+
+          }
+        }
+      }
+
+      .input {
+        position: sticky;
+        bottom: 0rem;
+        height: 2rem;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        padding: 0;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+
+        input {
+          width: 100%;
+          height: 100%;
+          border: none;
+          padding: 0 1rem;
+          font-size: 0.9rem;
+          color: gray;
+          outline: none;
+          margin-top: 0;
+        }
+
+        .send-icon {
+          fill: gray;
+          cursor: pointer;
+          margin-right: 1rem;
+        }
+      }
+
+      .tag {
+        position: relative;
+        width: 100%;
+        height: 1.8rem;
+
+        span {
+          font-size: 0.7rem;
+          margin-top: 0.5rem;
+          position: absolute;
+          top: 0;
+          left: 2.5rem;
+
+          color: rgb(82, 82, 82);
+          animation: spanAnimation 5s infinite;
+          text-align: center;
+
+          &:last-child {
+            opacity: 0;
+            animation-delay: 2.5s;
+          }
+        } 
+
+        @keyframes spanAnimation {
+        0% {
+          opacity: 0;
+        }
+
+        5% {
+          opacity: 1;
+        }
+
+        45% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+      }
+
+     
+
+    }
+
+
+    &::before {
+      content: '';
+    }
+  }
+}

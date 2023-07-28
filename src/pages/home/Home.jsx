@@ -14,6 +14,8 @@ import PropTypes from "prop-types";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Fade from "@mui/material/Fade";
 
+import Chatbot from "../../components/Chatbot";
+
 function ScrollTop(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -70,11 +72,12 @@ const Home = (props) => {
         <Fab
           size="small"
           aria-label="scroll back to top"
-          sx={{ right: "70px" }}
+          sx={{ right: "50px" }}
         >
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
+      <Chatbot />
     </div>
   );
 };
