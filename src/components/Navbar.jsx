@@ -15,7 +15,6 @@ const Navbar = () => {
       <Switch />
         <ul className="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="/mystory">My Story</a></li>
           <li id="work-list" >
             <div className="dropdown-works" >
               <span>Works ▾</span>
