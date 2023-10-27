@@ -116,6 +116,7 @@ const Chatbot = memo (function Chatbot() {
       nodeRef={ref}
       onStart={() => setIsDragging(true)}
       onStop={() => setIsDragging(false)}
+      bounds=".home"
     >
       <div
         className={`chatbot ${activeChatbot ? "active" : ""} ${

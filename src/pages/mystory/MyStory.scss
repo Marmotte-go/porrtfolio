@@ -1,0 +1,126 @@
+@import '../../App.scss';
+
+.mystory {
+  overflow: hidden;
+  background: linear-gradient($primaryDark 0, $primaryDark 8%, black);
+  height: 100vh;
+  width: 100%;
+  min-width: 900px;
+  .mystory_container{
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .title{
+      color: white;
+      font-size: 3rem;
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+      span.red{
+        font-style: italic;
+        text-shadow: 5px 3px red, 6px 4px lightgray;
+      }
+      span.blue{
+        font-style: italic;
+        text-shadow: 5px 3px blue, 6px 4px lightgray;
+      }
+    }
+
+    .ending{
+      margin: 3rem 0;
+      width: 700px;
+      p{
+        color: white;
+        font-size: 1rem;
+        text-align: justify;
+        margin: 2rem 0;
+      }
+      button{
+        margin: 0;
+        width: 100%;
+        height: 50px;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-shadow: 3px 2px blue;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        &:hover{
+          transform: scale(1.1);
+          text-shadow: 3px 2px red;
+        }
+      }
+    }
+
+    .options_container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .descriptions{
+        margin: 3rem 0;
+        width: 700px;
+        .question{
+          color: white;
+          font-size: 1rem;
+          text-align: justify;
+        }
+      }
+
+      .options{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:100px;
+        width: 100%;
+
+        .option{
+          width: 300px;
+          height: 250px;
+          border-radius: 10px;
+          border: 1px solid white;
+          background-color: black;
+          cursor: pointer;
+          transition: all 0.5s ease-in-out;
+          &:hover{
+            transform: scale(1.1);
+          }
+          
+          img{
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin: 0;
+          }
+
+          button{
+            margin: 0;
+            margin-top: -0.5rem;
+            width: 100%;
+            height: 50px;
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+
+            &.red{
+              text-shadow: 3px 2px red;
+            }
+            &.blue{
+              text-shadow: 3px 2px blue;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

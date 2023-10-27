@@ -37,7 +37,7 @@ const Contact = () => {
       <div className="container">
         <h1>Get in touch</h1>
         <span>
-          <h3>yuankemiao.dev@gmail.com</h3>
+          <a href="mailto: yuankemiao.dev@gmail.com" title="Click to send me a email!">yuankemiao.dev@gmail.com</a>
           <CopyButton email="yuankemiao.dev@gmail.com" />
         </span>
         <p>

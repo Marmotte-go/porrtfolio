@@ -1,5 +1,5 @@
 import "./Navbar.scss";
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import Switch from "./Switch";
 
@@ -14,23 +14,22 @@ const Navbar = () => {
       <div className="right">
       <Switch />
         <ul className="nav-links">
-          <li>Home</li>
-          <li>My Story</li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/mystory">My Story</a></li>
           <li id="work-list" >
             <div className="dropdown-works" >
               <span>Works ▾</span>
               <div className="dropdown-content" >
                 <ul>
-                  <li>AI stuffs</li>
-                  <li>Fullstack Blog</li>
-                  <li>Webpage Games</li>
-                  <li>Handy Tools</li>
-                  <li>CSS Effects</li>
+                  <li><a href="https://ai.yuankedev.fun" target="_blank" rel="noopener noreferrer">AI stuffs</a></li>
+                  <li><a href="https://blog.yuankedev.fun" target="_blank" rel="noopener noreferrer">Fullstack Blog</a></li>
+                  <li><a href="https://game.yuankedev.fun" target="_blank" rel="noopener noreferrer">Webpage Games</a></li>
+                  <li><a href="https://playground.yuankedev.fun" target="_blank" rel="noopener noreferrer">CSS Playground</a></li>
                 </ul>
               </div>
             </div>
           </li>
-          <li>Contact</li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>

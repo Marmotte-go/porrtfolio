@@ -1,49 +1,68 @@
 import { useState, useEffect } from "react";
-import {
-  fullstackApps,
-  webpageGames,
-  handyTools,
-  cssPlayground,
-} from "./workData";
+import { db } from "../../firebase";
 
 import placeholder from "../../img/placeholder.jpg";
 
 import "./Works.scss";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { collection, getDocs, query} from "firebase/firestore";
 
 const list = [
   { name: "Fullstack Apps", id: "fullstack-apps" },
   { name: "Webpage Games", id: "webpage-games" },
-  { name: "Handy Tools", id: "handy-tools" },
   { name: "CSS Playground", id: "css-playground" },
 ];
 
 const Works = () => {
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [selected, setSelected] = useState("fullstack-apps");
   const [data, setData] = useState([]);
+
+  const [works, setWorks] = useState(null);
+
   useEffect(() => {
+    const getWorks = async () => {
+      try {
+        const q = query(collection(db, "my_works"));
+        const querySnapshot = await getDocs(q);
+        const temp = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setWorks({
+          fullstackApps: temp.filter((item) => item.category === "fullstack-apps"),
+          webpageGames: temp.filter((item) => item.category === "webpage-games"),
+          cssPlayground: temp.filter((item) => item.category === "css-playground"),
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getWorks();
+  }, []);
+
+
+  useEffect(() => {
+    if(!works) return;
     switch (selected) {
       case "fullstack-apps":
-        setData(fullstackApps);
+        setData(works.fullstackApps);
         break;
       case "webpage-games":
-        setData(webpageGames);
-        break;
-      case "handy-tools":
-        setData(handyTools);
+        setData(works.webpageGames);
         break;
       case "css-playground":
-        setData(cssPlayground);
+        setData(works.cssPlayground);
         break;
       default:
-        setData(fullstackApps);
+        setData(works.fullstackApps);
+        break;
     }
-  }, [selected]);
+  }, [selected, works]);
 
   return (
-    <div id="works" className={`workpage ${theme === 'light' ? 'light' : ''}`}>
+    <div id="works" className={`workpage ${theme === "light" ? "light" : ""}`}>
       <div className="header">
         <h2>Works</h2>
         <p>
@@ -68,10 +87,16 @@ const Works = () => {
         </ul>
         <div className="works">
           {data.map((item) => (
-            <a className="work" key={item.id} href={item.published}>
+            <a
+              className="work"
+              key={item.id}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={item.image ? item.image : placeholder} alt="" />
               <div className="info">
-                <h3>{item.title}</h3>
+                <h3>{item.name}</h3>
                 <p>{item.description}</p>
               </div>
             </a>

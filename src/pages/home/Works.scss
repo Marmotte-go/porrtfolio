@@ -79,12 +79,11 @@
         list-style: none;
         cursor: pointer;
         font-size: .8rem;
-        height: 30px;
         font-weight: 600;
         color: inherit;
         transition: all 0.3s ease;
-        padding: 7px;
-        border-radius: 15px;
+        padding: 0.5rem 0.8rem;
+        border-radius: 1rem;
 
         &:hover {
           background-color: $primary;
