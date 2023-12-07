@@ -63,13 +63,29 @@ const Works = () => {
 
   return (
     <div id="works" className={`workpage ${theme === "light" ? "light" : ""}`}>
-      <div className="header">
+      <div className="header-skills">
+        <div className="header">
         <h2>Works</h2>
         <p>
           Life is too short to be serious. <br />
           I enjoy making fun stuff. <br />
           Here are some of my works.
         </p>
+        </div>
+        <div className="skills">
+          <div className="good">
+            <h3>Good at</h3>
+            <p>
+              React | JavaScript | TypeScript | HTML | CSS/SCSS | Node.js | Express.js | Firebase | Git/GitHub |
+            </p>
+          </div>
+          <div className="learning">
+            <h3>Learning</h3>
+            <p>
+              Next.js | AWS | Tailwind CSS
+            </p>
+          </div>
+        </div>
       </div>
       <div className="container">
         <ul>

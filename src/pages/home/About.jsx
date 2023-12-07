@@ -27,7 +27,6 @@ const About = () => {
             I love Lego, I will show you my <span>Lego</span> collection if you
             ask me.
           </p>
-          <p><a href="/">Know more ...</a></p>
         </div>
         <div className="container-right">
           <div className="img-box">

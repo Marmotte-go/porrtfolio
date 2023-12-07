@@ -11,30 +11,33 @@
   gap: 2rem;
   margin: 0;
 
-  &.light{
+  &.light {
     background: linear-gradient($secondaryLight, $secondary);
     color: $primaryDark;
 
-    .container{
-      ul{
-        li{
+    .container {
+      ul {
+        li {
           &:hover {
             background-color: $secondary;
           }
-  
+
           &.active {
             background-color: $secondaryDark;
           }
         }
       }
-      .works{
-        .work{
+
+      .works {
+        .work {
           border: 1px solid white;
-          .info{
-            h3{
+
+          .info {
+            h3 {
               background-color: rgba($color: $secondaryLight, $alpha: 0.7);
             }
-            p{
+
+            p {
               background-color: rgba($color: $secondaryLight, $alpha: 0.7);
             }
           }
@@ -43,21 +46,50 @@
     }
   }
 
-  .header {
+
+  .header-skills {
     flex: 1;
     padding-left: 5rem;
     min-width: 300px;
 
-    h2 {
-      font-size: 4rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    gap: 2rem;
+
+    .header {
+
+      h2 {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.7rem;
+      }
     }
 
-    p {
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.7rem;
+    .skills {
+      display: flex;
+      justify-content: center;
+      align-items: left;
+      flex-direction: column;
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
+      p{
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.7rem;
+      }
     }
   }
 
@@ -169,7 +201,7 @@
         &:hover {
           transform: scale(1.1);
 
-          p{
+          p {
             background-color: rgba($color: $primaryDark, $alpha: 0.7);
             display: block;
           }
